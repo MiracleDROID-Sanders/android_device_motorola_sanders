@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+0<?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
 ** Copyright 2015, The CyanogenMod Project
@@ -398,11 +398,6 @@
         <item>"/system/framework/arm64/boot-core-libart.oat"</item>
         <item>"/system/framework/arm64/boot-core-libart.vdex"</item>
     </string-array>
-
-    <!-- Does the notification LED support multiple colors?
-         Used to decide if the user can change the colors
-    <bool name="config_multiColorNotificationLed">true</bool>
-    -->
 
    <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
    in hardware. -->
