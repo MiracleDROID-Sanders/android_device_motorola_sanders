@@ -26,10 +26,16 @@ TARGET_SCREEN_WIDTH := 1080
 TARGET_SCREEN_HEIGHT := 1920
 
 ## Device identifier. This must come after all inclusions
+
 PRODUCT_DEVICE := sanders
+
 PRODUCT_NAME := mdroid_sanders
+
 PRODUCT_BRAND := motorola
+
 PRODUCT_MANUFACTURER := motorola
+
+PRODUCT_MODEL := Moto G5s Plus
 
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model
 
