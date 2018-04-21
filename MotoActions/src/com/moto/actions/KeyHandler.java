@@ -148,11 +148,11 @@ public class KeyHandler implements DeviceKeyHandler {
                 "GestureWakeLock");
 
         final Resources resources = mContext.getResources();
-        mProximityTimeOut = resources.getInteger(
+/*        mProximityTimeOut = resources.getInteger(
                 com.android.internal.R.integer.config_proximityCheckTimeout);
         mProximityWakeSupported = resources.getBoolean(
                 com.android.internal.R.bool.config_proximityCheckOnWake);
-
+*/
         if (mProximityWakeSupported) {
             mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
             mProximitySensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
@@ -525,10 +525,37 @@ public class KeyHandler implements DeviceKeyHandler {
             }
         } else if (isScreenOffGesturesScanCode) {
             handleScreenOffScancode(scanCode);
+<<<<<<< HEAD
+=======
         }
         return true;
     }
 
+
+
+    public boolean canHandleKeyEvent(KeyEvent event) {
+        int scanCode = event.getScanCode();
+
+        if (DEBUG) {
+            Log.d(TAG, "DEBUG: action=" + event.getAction()
+                    + ", flags=" + event.getFlags()
+                    + ", keyCode=" + event.getKeyCode()
+                    + ", scanCode=" + event.getScanCode()
+                    + ", metaState=" + event.getMetaState()
+                    + ", repeatCount=" + event.getRepeatCount());
+        }
+
+        boolean isFPScanCode = ArrayUtils.contains(sSupportedFPGestures, scanCode);
+        boolean isScreenOffGesturesScanCode = ArrayUtils.contains(sSupportedScreenOffGestures, scanCode);
+        if (!isFPScanCode && !isScreenOffGesturesScanCode) {
+            return false;
+>>>>>>> 15b8fcc... Use MotoActions from Potter
+        }
+
+        return true;
+    }
+
+<<<<<<< HEAD
 
 
     public boolean canHandleKeyEvent(KeyEvent event) {
@@ -552,6 +579,8 @@ public class KeyHandler implements DeviceKeyHandler {
         return true;
     }
 
+=======
+>>>>>>> 15b8fcc... Use MotoActions from Potter
     public boolean isCameraLaunchEvent(KeyEvent event) {
         return false;
     }
@@ -762,7 +791,7 @@ public class KeyHandler implements DeviceKeyHandler {
         if (isProximityEnabledOnScreenOffGesturesFP() && !mFPScreenOffGesturesHandler.hasMessages(FP_ACTION_REQUEST)) {
             Message msg = mFPScreenOffGesturesHandler.obtainMessage(FP_ACTION_REQUEST);
             msg.arg1 = scanCode;
-            boolean defaultProximity = mContext.getResources().getBoolean(
+/*            boolean defaultProximity = mContext.getResources().getBoolean(
                     com.android.internal.R.bool.config_proximityCheckOnWakeEnabledByDefault);
             boolean proximityWakeCheckEnabled = Settings.System.getInt(mContext.getContentResolver(),
                     Settings.System.PROXIMITY_ON_WAKE, defaultProximity ? 1 : 0) == 1;
@@ -772,6 +801,10 @@ public class KeyHandler implements DeviceKeyHandler {
             } else {
                 mFPScreenOffGesturesHandler.sendMessage(msg);
             }
+<<<<<<< HEAD
+=======
+*/
+>>>>>>> 15b8fcc... Use MotoActions from Potter
         }else{
             processFPScancode(scanCode);
         }
@@ -825,7 +858,11 @@ public class KeyHandler implements DeviceKeyHandler {
         if (isProximityEnabledOnScreenOffGestures() && !mScreenOffGesturesHandler.hasMessages(GESTURE_REQUEST)) {
             Message msg = mScreenOffGesturesHandler.obtainMessage(GESTURE_REQUEST);
             msg.arg1 = scanCode;
+<<<<<<< HEAD
             boolean defaultProximity = mContext.getResources().getBoolean(
+=======
+/*            boolean defaultProximity = mContext.getResources().getBoolean(
+>>>>>>> 15b8fcc... Use MotoActions from Potter
                   com.android.internal.R.bool.config_proximityCheckOnWakeEnabledByDefault);
             boolean proximityWakeCheckEnabled = Settings.System.getInt(mContext.getContentResolver(),
                     Settings.System.PROXIMITY_ON_WAKE, defaultProximity ? 1 : 0) == 1;
@@ -835,6 +872,10 @@ public class KeyHandler implements DeviceKeyHandler {
             } else {
                 mScreenOffGesturesHandler.sendMessage(msg);
             }
+<<<<<<< HEAD
+=======
+*/
+>>>>>>> 15b8fcc... Use MotoActions from Potter
         }else{
             processScreenOffScancode(scanCode);
         }
