@@ -81,7 +81,7 @@ TARGET_KERNEL_SOURCE := kernel/motorola/msm8953
 #
 # Toolchain
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-4.9/bin
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-androidkernel
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-androidkernel-
 
 # Audio
 AUDIO_FEATURE_ENABLED_ALAC_OFFLOAD := true
@@ -137,6 +137,7 @@ BOARD_USES_QCNE := true
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
+TARGET_CRYPTFS_HW_PATH ?=vendor/qcom/opensource/cryptfs_hw
 
 # Enable dexpreopt to speed boot time
 WITH_DEXPREOPT := true
@@ -174,8 +175,6 @@ TARGET_PROVIDES_LIBLIGHT := true
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/manifest.xml
 DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/configs/compatibility_matrix.xml
 
-PRODUCT_BOOT_JARS += telephony-ext
-
 NXP_CHIP_TYPE := PN551
 BOARD_NFC_HAL_SUFFIX := $(TARGET_BOARD_PLATFORM)
 
@@ -191,9 +190,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 25614597120 # 25014255 * 1024 mmcblk0p54
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true
 
-# Power
-TARGET_POWERHAL_VARIANT := qcom
-
+# QC flags
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QC_TIME_SERVICES := true
 
